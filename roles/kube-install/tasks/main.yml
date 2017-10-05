@@ -82,13 +82,13 @@
   include: kube-16-workaround.yml
   when: kube_16_workaround
 
-- name: Remove default kubadm.conf ExecStart
+- name: Remove default kubeadm.conf ExecStart
   lineinfile:
     dest: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
     regexp: 'KUBELET_EXTRA_ARGS$'
     state: absent
 
-- name: Add custom kubadm.conf ExecStart
+- name: Add custom kubeadm.conf ExecStart
   lineinfile:
     dest: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
     regexp: 'systemd$'
